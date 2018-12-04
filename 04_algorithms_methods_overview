@@ -1,0 +1,34 @@
+Dijkstra's Algorithm: Dijkstra's algorithm is a search algorithm for finding the shortest path between two nodes.  It expands the node with the shortest difference, calculates the distance to each unvisited neighbor through that node, then updates the distances for those neighbor nodes if the new distance is lower than its current distance.  Once all neighbors of a node have been expanded atleast once, the node is marked as visited and not considered again.  This is an efficient uninformed search algorithm.  
+Depth First Search: DFS is a search algorithm which continually expands nodes in a single path until that path terminates.  The fringe is treated as a stack, so the next node explored is always the last one added to the stack.  The solutions found by DFS are not guaranteed to be optimal (shortest path) nor will they usually be found in an optimal time.
+
+Breadth First Search: BFS is a search algorithm which expands the nodes nearest to the starting point first.  The fringe is treated as a queue, so that the next node explored is always the one that was first added to the queue.  This algorithm will always find the shortest path (unweighted) to a goal state  
+
+Uniform Cost Search: Uniform cost search is a search algorithm which always explores the node with the lowest cumulative cost.  The fringe is treated as a priority queue, where nodes are sorte by the weighted cost of the distance from the starting state.  The node with the lowest cumulative cost from the starting point is always the next one explored.
+
+Greedy Search: Greedy search is a search algorithm which always explores the fringe node with the lowest heuristic cost.  Heuristics are approximations functions of distance to the goal state, so greedy search "greedily" tries to get there as quick as possible by choosing nodes with low heuristic cost.
+
+A* Search: A star search combines both forward cost and backwards cost.  It treats the fringe as a priority queue, where nodes are sorted by their total cost, which is a sum of their backwards cost (wieghted distance from start state) and forward cost (heuristic approximation of distance to goal state).  
+
+Minimax: Minimax is an adversarial search algorithm, where two or more adversarial agents are trying to either maximize or minimize some value.  A max agent will always make the choice (node, action, etc.) which maximizes the value, while the min agent acts to minimize.  However, the algorithm looks forward so that the future actions by min are taken into account for max, and vice-versa.  This algorithm is useful for certain types of adversarial games, such as tic-tac-toe or chess.  
+
+Alpha-Beta Pruning:  Alph-Beta Pruning is an extension of the minimax algorithm, which improves the algorithm by making it more efficient and increasing the future depth that the algorithm is able to search.  The algorithm works by pruning the graph such that nodes which will not effect the final value of a state are not searched.  The alpha and beta values are used as threshold values which cause the max or min functions to return early and reduce computational complexity. 
+
+Evaluation Functions:  Evaluation functions are used to estimate the value of a non-terminal state or node.  Since state spaces are often to large to be explicitly searched in their entirety, evaluation functions provide some estimation of the value of a non-terminal state.  This invloves feature extraction from the state, and often evaluation functions are linear combinations of these features, with a specific weight assigned to each feature.
+
+Expectimax Search: Expectimax search is an adversarial search algorithm which calculates the average score under optimal play.  The max agent functions normally, while the min agent is replaced by an agent which calculates an expected value by summing up all values multiplied by their respective probabilities.  This agent is useful when you are searching from an approximate solution, and not necessarily playing against an optimal agent.
+
+Markov Decision Processes: A Markov Decision Process is a formalized, non-determninistic search problem which is defined by a state space, actions, transition states, rewards, and start/end states.  They are non-determninistic because the transistion states represent state-action pairs, where, with some probability distribution, multiple different state/reward outcomes are possible.  
+
+Value Iteration: Value Itaration is an iterative algorithm for solving Markov Decision Processes.  The value assigned to a position is max value, given some action, of the weighted sum of the rewards, plus the discounted value of the next state.  This update rule is iterated over until convergence for values is reached.
+
+Policy evaluation:  policy evaluation quantifies the value of a polocy by measuring the value of each state in a given MDP.  This value is determined by the weighted sum (based on the transistion states) of the rewards and discount values of the next state, given that some action dictated by the policy is taken.  This is a useful first step in improving a policy.
+
+Policy extraction: Policy extraction is a method for computing a set of actions (policy) based on values.  Values for each state in a MDP can be computed using the Bellman equations, policy extraction selects the set of actions that maximize the value in each state as a policy.
+
+Policy Iteration:Policy iteration is the process of generating a successively better policy by iterating over policy evaluation and policy extraction.  Policy evalutation scores a policy, then policy extraction develops a new, improved (or at least as strong) policy based on these values.  When this process is repeated, it leads to a better policy over time.
+
+Q-Learning: Q-learning is a reinforcement learning algorithm for developimng an optimal policy.  Unlike previous methods for solving MDP's, the transition states and rewards are unknown, and must be empirically determined.  This is done by acting in the environment, and receiving samples of [state, action, new state, reward], which are used to develop an average of the Q-value for each state-action pair over time.  
+
+
+Approximate Q-Learning: Approximate Q-learning is a form of Q-learning used for large state spaces.  For Q-learning to work, the state space must be small enough such that each state can be visited, and each state-action pair can be explixitly assigned a value.
+
